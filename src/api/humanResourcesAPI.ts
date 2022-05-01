@@ -11,7 +11,6 @@ const GetUser = async (userId:string) => {
   return response.data;
 };
 
-
 const HumanResourcesAPI = {
   GetUsers, GetUser
 };
