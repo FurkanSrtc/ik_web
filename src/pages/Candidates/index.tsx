@@ -17,16 +17,8 @@ export default function Candidates() {
   }
 
   useEffect(() => {
-    console.log('Candidates2')
     fetchCandidates()
-
   }, [])
-  useEffect(() => {
-    /*
-    Query logic
-    */
-    console.log('i fire once');
-  }, []);
 
   const fetchCandidates = () => {
     setLoading(true)
@@ -76,7 +68,10 @@ export default function Candidates() {
         <h1 style={{color:'#474E5D'}}>Candidates</h1>
       </div>  
       <div style={{ display: "flex", paddingLeft: 20, paddingRight: 20 }}>
-        <CustomTable columns={columns} tableData={candidates ?? []} sortBy="name" />
+        {loading ? <div>Loading...</div> :
+        <CustomTable columns={columns} tableData={candidates ?? []} sortBy="name" 
+        />
+        }
       </div>
     </>
   )
