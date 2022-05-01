@@ -6,8 +6,14 @@ const GetUsers = async () => {
   return response.data;
 };
 
+const GetUser = async (userId:string) => {
+  const response = await http.get<UserObject>(`/users/${userId}`);
+  return response.data;
+};
+
+
 const HumanResourcesAPI = {
-  GetUsers
+  GetUsers, GetUser
 };
 
 export default HumanResourcesAPI;

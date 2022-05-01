@@ -21,25 +21,25 @@ export default function Candidates() {
     fetchCandidates()
 
   }, [])
-  useEffect(()=>{
+  useEffect(() => {
     /*
     Query logic
     */
     console.log('i fire once');
-},[]);
+  }, []);
 
   const fetchCandidates = () => {
     setLoading(true)
     HumanResourcesAPI.GetUsers()
-    .then(res => {
-      setCandidates(res)
-      console.log(res)
-      setLoading(false)
-    })
-    .catch(err => {
-      console.log(err)
-      setLoading(false)
-    })
+      .then(res => {
+        setCandidates(res)
+        console.log(res)
+        setLoading(false)
+      })
+      .catch(err => {
+        console.log(err)
+        setLoading(false)
+      })
   }
 
   const columns = React.useMemo(
@@ -60,9 +60,9 @@ export default function Candidates() {
         Header: "Settings",
         Cell: (data: any) => {
           return (
-              <button className='btn btn-primary' onClick={() => {selectedCandidate(data.row.original.id)}}>
-                      <IoReaderOutline size={20} />
-              </button>
+            <button className='btn btn-primary' onClick={() => { selectedCandidate(data.row.original.id) }}>
+              <IoReaderOutline size={20} />
+            </button>
           );
         }
       },
@@ -72,9 +72,12 @@ export default function Candidates() {
 
   return (
     <>
-    <div className='container'>
-    <CustomTable columns={columns} tableData={candidates ?? []} sortBy="name" />
-    </div>
+      <div className="candidates-section">
+        <h1 style={{color:'#474E5D'}}>Candidates</h1>
+      </div>  
+      <div style={{ display: "flex", paddingLeft: 20, paddingRight: 20 }}>
+        <CustomTable columns={columns} tableData={candidates ?? []} sortBy="name" />
+      </div>
     </>
   )
 }

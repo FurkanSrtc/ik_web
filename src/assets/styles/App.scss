@@ -13,20 +13,82 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
-  padding-right: 20px;
-  padding-left: 20px;
-  margin-right: auto;
-  margin-left: auto;
+/*Home*/
+$first-color: #b3b0aa;
+$second-color: #474E5D;
+
+.flexing {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  @media screen and (min-width: 1000px) {
+    flex-direction: row;
+  }
 }
 
+.section {
+  flex: 1;
+  position: relative;
+  transition: 0.5s ease;
 
-/*About Section*/
-.about-section {
+  &--first-color {
+    background-color: $first-color;
+  }
+
+  &--second-color {
+    background-color: $second-color;
+    
+  }
+
+  &:hover, &:active, &:focus {
+    flex: 2;
+    .title {
+      transform: translate(-50%, -50%) rotate(0);
+      
+      @media screen and (min-width: 1000px) {
+        transform: translate(-50%, -50%) scale(1.25);
+      }
+    }
+  }
+
+  .title {
+    font-family: "Fredoka One";
+    font-size: 5rem;
+    left: 50%;
+    margin: 0;  
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s ease;
+
+    @media screen and (min-width: 1000px) {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+  }
+}
+/*End Home*/
+
+
+.candidates-section {
   padding: 50px;
   text-align: center;
-  background-color: #474e5d;
+  background-color: $first-color;
   color: white;
+}
+
+.about-section {
+  display: flex;
+  height: 100vh;
+  background-color: $second-color;
+  flex-wrap: wrap;
+  padding: 20px;  
+}
+
+.about-title {
+  font-family: 'Playfair Display', serif;
+  color: $first-color;
+
 }
 
 /*Table Section*/
@@ -63,7 +125,7 @@ ul.pagination li button {
 }
 
 ul.pagination li button.active {
-  background-color: #4CAF50;
+  background-color: $first-color;
   color: white;
 }
 
@@ -86,9 +148,9 @@ ul.pagination li button:hover:not(.active) {background-color: #ddd;}
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: rgb(23, 84, 208);
-  border: 1px solid rgb(255, 255, 255);
+  color: $second-color;
+  background-color: $first-color;
+  border: 1px solid $second-color;
 }
 
 .btn-primary:hover,
@@ -96,8 +158,28 @@ ul.pagination li button:hover:not(.active) {background-color: #ddd;}
 .btn-primary:focus,
 .btn-primary.hover {
   /* let's darken #004E64 a bit for hover effect */
-  background-color: rgb(21, 63, 147);
-  border: 1px solid rgb(255, 255, 255);
-  color: #fff;
+  background-color: #474E5D;
+  border: 1px solid #474E5D;
+  color: #b3b0aa;
 
 }
+
+.card {
+  flex: 0 0 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
+} 
+.card img {
+  max-width: 100%;
+}
+.card .text {
+  padding: 0 20px 20px;
+}
+.card .text > button {
+  background: gray;
+  border: 0;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  }
