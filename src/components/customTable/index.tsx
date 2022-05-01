@@ -6,17 +6,10 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
 
   const defaultColumn = React.useMemo(
     () => ({
-      // Let's set up our default Filter UI
       Filter: DefaultColumnFilter,
     }),
     []
   );
-
-
-  // const columns = React.useMemo(
-  //     () => props.columns,
-  //     [props.columns]
-  // )
 
   type GlobalFilterType = {
     preGlobalFilteredRows:Row<{}>[],
@@ -55,11 +48,6 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
     );
   }
 
-  type DefaultColumnFilterType = {
-      filterValue: string;
-      preFilteredRows: Row<{}>[];
-      setFilter: (value: string | undefined) => void; 
-  }
   // Define a default UI for filtering
   function DefaultColumnFilter({filterValue,preFilteredRows,setFilter}: any) {
     const count = preFilteredRows.length;
@@ -74,11 +62,9 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
     );
   }
 
-
   function fuzzyTextFilterFn(rows: Row[], id: any, filterValue: string) {
     return matchSorter(rows, filterValue, { keys: [row => row.values[id]] });
   }
-
 
   const filterTypes = React.useMemo(
     () => ({
@@ -99,8 +85,6 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
     }),
     []
   );
-
-
 
   const {
     getTableProps,
@@ -134,7 +118,6 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
       ], 
       pageIndex: 0
     },
-    // The rest of these things are super handy, too ;)
   }, useFilters,
   useGlobalFilter, useSortBy, usePagination);
 
@@ -149,7 +132,6 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
                 <th
                   {...column.getHeaderProps(column.getSortByToggleProps)}
                 >
-
                   {column.render("Header")}
                   {column.isSorted
                     ? column.isSortedDesc
@@ -189,8 +171,6 @@ export default function CustomTable(props: { columns: any; tableData: any; sortB
                         style: {
                           minWidth: cell.column.minWidth,
                           width: cell.column.width,
-                          //   height: cell.column.height,
-                          //   minHeight: cell.column.minHeight
                         },
                       })}
                     >
@@ -257,10 +237,6 @@ Pagination can be built however you'd like.
         </select>
           </li>
         </ul>
-
-
-
       </div>
-    
   );
 }

@@ -17,6 +17,14 @@ body {
 $first-color: #b3b0aa;
 $second-color: #474E5D;
 
+
+.first-color {
+  color: $first-color;
+}
+.second-color {
+  color: $second-color;
+}
+
 .flexing {
   display: flex;
   flex-direction: column;
@@ -83,7 +91,18 @@ $second-color: #474E5D;
   background-color: $second-color;
   flex-wrap: wrap;
   padding: 20px;  
+
+  &-area {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    flex: 1;
+    font-size: 32px; 
+    min-width: 300;
+    
+  }
 }
+
 
 .about-title {
   font-family: 'Playfair Display', serif;
@@ -151,35 +170,44 @@ ul.pagination li button:hover:not(.active) {background-color: #ddd;}
   color: $second-color;
   background-color: $first-color;
   border: 1px solid $second-color;
-}
+  margin: 0px;
 
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:focus,
-.btn-primary.hover {
-  /* let's darken #004E64 a bit for hover effect */
-  background-color: #474E5D;
-  border: 1px solid #474E5D;
-  color: #b3b0aa;
-
-}
-
-.card {
-  flex: 0 0 200px;
-  margin: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 6px 0px  rgba(0,0,0,0.3);
-} 
-.card img {
-  max-width: 100%;
-}
-.card .text {
-  padding: 0 20px 20px;
-}
-.card .text > button {
-  background: gray;
-  border: 0;
-  color: white;
-  padding: 10px;
-  width: 100%;
+  &:hover {
+    background-color: $second-color;
+    border: 1px solid $second-color;
+    color: $first-color;
   }
+}
+
+.icon
+{
+  color: $second-color;
+  background-color: $first-color;
+  padding:8px; 
+  border: 2px solid $second-color;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: $second-color;
+    border: 1px solid $second-color;
+    color: $first-color;
+  }
+}
+
+
+.user-card {
+  color: $second-color;
+  display: flex; 
+  flex-direction: row; 
+  justify-content: center; 
+  padding: 30px;
+  border: 3px solid $second-color;
+  background-color: white;
+
+  &-details {
+    text-align: center;
+  }
+}
+
+  
+  

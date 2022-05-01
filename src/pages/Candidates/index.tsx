@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import HumanResourcesAPI from '../../api/humanResourcesAPI'
 import { UserObject } from '../../types/userTypes'
-import { Row as TableRow, Cell } from "react-table";
 import CustomTable from '../../components/customTable';
-import { IoCreateOutline, IoReaderOutline } from "react-icons/io5";
+import { IoReaderOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 
@@ -52,8 +51,8 @@ export default function Candidates() {
         Header: "Settings",
         Cell: (data: any) => {
           return (
-            <button className='btn btn-primary' onClick={() => { selectedCandidate(data.row.original.id) }}>
-              <IoReaderOutline size={20} />
+            <button className='btn btn-primary' style={{paddingTop:5, paddingBottom:5, paddingInline:24}} onClick={() => { selectedCandidate(data.row.original.id) }}>
+              <IoReaderOutline size={24} style={{padding:0, margin:0}} />
             </button>
           );
         }
@@ -69,8 +68,7 @@ export default function Candidates() {
       </div>  
       <div style={{ display: "flex", paddingLeft: 20, paddingRight: 20 }}>
         {loading ? <div>Loading...</div> :
-        <CustomTable columns={columns} tableData={candidates ?? []} sortBy="name" 
-        />
+        <CustomTable columns={columns} tableData={candidates ?? []} sortBy="name" />
         }
       </div>
     </>

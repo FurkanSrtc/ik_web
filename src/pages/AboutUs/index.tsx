@@ -3,16 +3,10 @@ import React from 'react';
 export default function AboutUs() {
   return (
     <div className="about-section">
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1, fontSize: 32, minWidth: 300,
-      }}
-      >
+      <div className="about-section-area">
         <h1 className="about-title">About Us</h1>
       </div>
-      <div style={{
-        display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 2, minWidth: 300, fontSize: 32,
-      }}
-      >
+      <div className="about-section-area">
         <p style={{ color: '#b3b0aa' }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean tempus eu dolor ac pretium. Donec aliquam,
@@ -26,7 +20,6 @@ export default function AboutUs() {
           efficitur est. Mauris tincidunt, nunc vehicula bibendum ullamcorper,
           justo orci maximus tellus, sed pellentesque erat sem suscipit velit.
           Cras at urna vel urna tincidunt tempor.
-
         </p>
       </div>
     </div>
